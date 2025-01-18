@@ -1,6 +1,6 @@
 part of 'gps_bloc.dart';
 
-sealed class GpsState extends Equatable {
+class GpsState extends Equatable {
   final bool isGpsEnabled;
   final bool isGpsPermissionGranted;
 
@@ -13,7 +13,7 @@ sealed class GpsState extends Equatable {
     bool? isGpsEnabled,
     bool? isGpsPermissionGranted,
   }) =>
-      GpsAccessState(
+      GpsState(
         isGpsEnabled: isGpsEnabled ?? this.isGpsEnabled,
         isGpsPermissionGranted:
             isGpsPermissionGranted ?? this.isGpsPermissionGranted,
@@ -26,9 +26,4 @@ sealed class GpsState extends Equatable {
 class GpsInitialState extends GpsState {
   const GpsInitialState()
       : super(isGpsEnabled: false, isGpsPermissionGranted: false);
-}
-
-class GpsAccessState extends GpsState {
-  const GpsAccessState(
-      {required super.isGpsEnabled, required super.isGpsPermissionGranted});
 }
